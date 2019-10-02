@@ -108,7 +108,7 @@ Board Generationer::evaluatorClassic(Board b){
 
 
 
-Board Generationer::evaluatorDonut(Board b){ //THIS IS COPIED FROM MIRROR, NEED TO UPDATE ELSEIF'S
+Board Generationer::evaluatorDonut(Board b){
   int y = b.getY();
   int x = b.getX();
   Board newBoard = Board(y,x);
@@ -116,57 +116,65 @@ Board Generationer::evaluatorDonut(Board b){ //THIS IS COPIED FROM MIRROR, NEED 
   for(int v = 1; v <= y; ++v){
     for(int h = 1; h <= x; ++h){
       int sum = 0;
+
       if(v>1 && h>1){ //TOP LEFT
         sum += b.getSpace(v-1,h-1);
       }else if(v>1){
-        sum += b.getSpace(y,h);
+        sum += b.getSpace(v-1,x);
       }else if(h>1){
-        sum += b.getSpace(v,x);
+        sum += b.getSpace(y,h-1);
       }else{
         sum += b.getSpace(y,x);
       }
-      if(v>1){ //TOP MIDDLE
+
+      if(v>1){ //TOP
         sum += b.getSpace(v-1,h);
       }else{
-        sum += b.getSpace(x,h);
+        sum += b.getSpace(y,h);
       }
+
       if(v>1 && h<x){ //TOP RIGHT
         sum += b.getSpace(v-1,h+1);
       }else if(v>1){
-        sum += b.getSpace(x,h);
+        sum += b.getSpace(v-1,1);
       }else if(h<x){
-        sum += b.getSpace(v,1);
+        sum += b.getSpace(y,h+1);
       }else{
-        sum += b.getSpace(x,1);
+        sum += b.getSpace(y,1);
       }
+
       if(h<x){ //RIGHT
         sum += b.getSpace(v,h+1);
       }else{
         sum += b.getSpace(v,1);
       }
+
       if(v<y && h<x){ //BOTTOM RIGHT
         sum += b.getSpace(v+1,h+1);
       }else if(v<y){
-        sum += b.getSpace(1,h);
+        sum += b.getSpace(v+1,1);
       }else if(h<x){
-        sum += b.getSpace(v,1);
+        sum += b.getSpace(1,h+1);
       }else{
         sum += b.getSpace(1,1);
       }
+
       if(v<y){ //BOTTOM
         sum += b.getSpace(v+1,h);
       }else{
         sum += b.getSpace(1,h);
       }
+
       if(v<y && h>1){ //BOTTOM LEFT
         sum += b.getSpace(v+1,h-1);
       }else if(v<y){
-        sum += b.getSpace(1,h);
+        sum += b.getSpace(v+1,x);
       }else if(h>1){
-        sum += b.getSpace(v,x);
+        sum += b.getSpace(1,h-1);
       }else{
         sum += b.getSpace(1,x);
       }
+
       if(h>1){ //LEFT
         sum += b.getSpace(v,h-1);
       }else{
@@ -220,7 +228,7 @@ Board Generationer::evaluatorMirror(Board b){
       }else{
         sum += b.getSpace(v,h);
       }
-      if(v>1){ //TOP MIDDLE
+      if(v>1){ //TOP
         sum += b.getSpace(v-1,h);
       }else{
         sum += b.getSpace(v,h);

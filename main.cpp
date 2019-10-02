@@ -21,17 +21,17 @@ int main(int argc, char** argv){
   cin >> randomOrFlat;
   Board mainBoard = Board();
   if(randomOrFlat == 1){
-    int x = 0;
-    int y = 0;
+    int xVal = 0;
+    int yVal = 0;
     float density = 0;
     cout << "What would you like the width of the board to be?: ";
-    cin >> x;
+    cin >> xVal;
     cout << "What would you like the height of the board to be?: ";
-    cin >> y;
+    cin >> yVal;
     cout << "What would you like the density of the board to be? (between 0 and 1): ";
     cin >> density;
     Generator g = Generator();
-    mainBoard = g.random(y,x,density);
+    mainBoard = g.random(yVal,xVal,density);
     cout << "Board is generated." << endl;
   }else if(randomOrFlat == 2){
     string name = "";

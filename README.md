@@ -1,4 +1,6 @@
 # fall2019-A2Life
+Jed Malashock
+2298758
 
 http://www.cplusplus.com/forum/general/100728/ to learn how to import classes into other classes in C++
 https://stackoverflow.com/questions/4442658/c-parse-int-from-string to learn C++'s version of parseInt
